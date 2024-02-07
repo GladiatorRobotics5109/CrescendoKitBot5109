@@ -28,4 +28,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
       public Command startFeed() {
         return this.runOnce(() -> m_feeder.set(1));
       }
+      public Command stopShooter() {
+        return this.runOnce(() -> m_shooter.set(0));
+      }
+      public Command stopFeed() {
+        return this.runOnce(() -> m_feeder.set(0));
+      }
  }
