@@ -28,9 +28,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
         return this.runOnce(() -> {m_feeder.set(-1); m_shooter.set(-1);});
       }
       public Command stopShooter() {
-        return this.runOnce(() -> m_shooter.set(0));
+        return this.runOnce(() -> {m_shooter.set(0); m_feeder.set(0);});
       }
       public Command stopFeed() {
-        return this.runOnce(() -> m_feeder.set(0));
+        return this.runOnce(() -> {m_feeder.set(0); m_shooter.set(0);});
       }
  }
