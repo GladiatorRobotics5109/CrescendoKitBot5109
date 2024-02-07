@@ -67,7 +67,7 @@ public class RobotContainer {
     m_driverController.leftTrigger().whileTrue(m_shooterSubsystem.startShooter()).whileFalse(m_shooterSubsystem.stopShooter());
     m_driverController.rightTrigger().whileTrue(m_shooterSubsystem.startFeed()).whileFalse(m_shooterSubsystem.stopFeed());
     m_driverController.a().onTrue(m_shooterSubsystem.Feed2());
-    m_driverController.a().onFalse(m_shooterSubsystem.Feed2());
+    m_driverController.a().onFalse(m_shooterSubsystem.stopFeed2());
 
 
   }
