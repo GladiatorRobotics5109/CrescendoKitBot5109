@@ -26,7 +26,7 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
 
-  private final Shoot motors = new Shoot();
+
   private final XboxController m_controller = new XboxController(0);
 
   /**
@@ -97,7 +97,7 @@ public class Robot extends TimedRobot {
 =======
 
     //motors.m_shooter.set(1);
-    double trigger = m_controller.getLeftTriggerAxis();
+    
     
     boolean shootButtonPressed = m_controller.getRawButtonPressed(0);
 
