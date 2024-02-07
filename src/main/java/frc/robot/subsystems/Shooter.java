@@ -34,8 +34,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
         });
       }
       public Command stopShooter() {
-        return this.runOnce(() -> {
-          m_shooter.set(0); 
+        return this.runOnce(() -> { 
           m_feeder.set(0);
         });
       }
@@ -47,10 +46,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
       }
       public Command Feed2() {
         shoot = true;
-        return this.runOnce(() -> m_feeder.set(1));
+        return this.runOnce(() -> m_shooter.set(1));
       }
       public Command stopFeed2() {
         shoot = false;
-        return this.runOnce(() -> m_feeder.set(0));
+        return this.runOnce(() -> m_shooter.set(0));
       }
  }
