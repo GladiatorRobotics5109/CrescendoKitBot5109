@@ -6,12 +6,14 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
-// import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+
+import frc.robot.subsystems.DriveTrain;
 
  
 /**
@@ -25,6 +27,8 @@ public class RobotContainer {
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   private final Shooter m_shooterSubsystem = new Shooter();
+
+  private final DriveTrain m_driveTrain = new DriveTrain();
   // private final Shooter m_feeder = new Shooter();
 
 
@@ -52,10 +56,16 @@ public class RobotContainer {
     
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
+
+    
+
+    // drive train binding to the controller
+    m_driveTrain.arcadeDrive(m_driverController.getLeftX(), m_driverController.getRightX());
+    
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
-    m_driverController.leftTrigger().whileTrue(m_shooterSubsystem.startFeed()).whileFalse(m_shooterSubsystem.stopFeed());
-    m_driverController.rightTrigger().whileTrue(m_shooterSubsystem.startShooter()).whileFalse(m_shooterSubsystem.stopShooter());
+    m_driverController.leftTrigger().whileTrue(m_shooterSubsystem.startShooter()).whileFalse(m_shooterSubsystem.stopShooter());
+    m_driverController.rightTrigger().whileTrue(m_shooterSubsystem.startFeed()).whileFalse(m_shooterSubsystem.stopFeed());
 
 
   }
