@@ -48,6 +48,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
       public Command Feed2() {
         shoot = true;
         return this.runOnce(() -> m_feeder.set(1));
+        
       }
       public Command stopFeed2() {
         shoot = false;
