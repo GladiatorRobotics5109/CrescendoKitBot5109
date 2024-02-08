@@ -28,14 +28,11 @@ public class DriveTrain extends SubsystemBase {
 
   }
 
-  public void arcadeDrive(double fwd, double rot) {
-    drive.arcadeDrive(fwd, rot);
-  }
-
-  
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+
+
   }
 }

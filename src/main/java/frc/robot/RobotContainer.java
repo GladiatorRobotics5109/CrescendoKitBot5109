@@ -60,7 +60,7 @@ public class RobotContainer {
     
 
     // drive train binding to the controller
-    m_driveTrain.arcadeDrive(m_driverController.getLeftX(), m_driverController.getRightX());
+    
     
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
@@ -83,6 +83,9 @@ public class RobotContainer {
   }
 
   public void teleopPeriodic(){
+
+    double speed = m_driverController.getLeftX();
+    double
 
     
   }
