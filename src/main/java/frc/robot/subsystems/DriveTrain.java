@@ -28,26 +28,21 @@ public class DriveTrain extends SubsystemBase {
 
   }
 
-<<<<<<< Updated upstream
-=======
   // Arcade drive method
   public Command getArcadeDriveWithJoystickCommand(DoubleSupplier vx, DoubleSupplier vrot) {
     return this.runOnce(
       () -> {
         double throttle = vx.getAsDouble();
         double rotation = vrot.getAsDouble();
-        arcadeDrive(throttle, rotation);
+        drive.arcadeDrive(throttle, rotation);
         
       }
     );
   }
 
->>>>>>> Stashed changes
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-
-
   }
 }

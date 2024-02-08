@@ -59,18 +59,17 @@ public class RobotContainer {
     
 
     // drive train binding to the controller
-<<<<<<< Updated upstream
-    
-=======
 
->>>>>>> Stashed changes
+
+    m_driveTrain.setDefaultCommand(m_driveTrain.getArcadeDriveWithJoystickCommand(
+      () -> m_driverController.getLeftY(),
+      () -> m_driverController.getRightX()
+    ));
     
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
     m_driverController.leftTrigger().whileTrue(m_shooterSubsystem.startShooter()).whileFalse(m_shooterSubsystem.stopShooter());
     m_driverController.rightTrigger().whileTrue(m_shooterSubsystem.startFeed()).whileFalse(m_shooterSubsystem.stopFeed());
-    m_driverController.a().onTrue(m_shooterSubsystem.toggleShoot());
-    // m_driverController.a().onFalse(m_shooterSubsystem.stopFeed2());
 
 
   }
@@ -85,15 +84,8 @@ public class RobotContainer {
     return Autos.exampleAuto(m_exampleSubsystem);
   }
 
-  // public void teleopPeriodic(){
+  public void teleopPeriodic(){
 
-  //   // double speed = m_driverController.getLeftX();
-
-<<<<<<< Updated upstream
-    
-  // }
-=======
 
   }
->>>>>>> Stashed changes
 }
