@@ -44,12 +44,23 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
           m_shooter.set(0);
         });
       }
-      public Command Feed2() {
-        shoot = true;
-        return this.runOnce(() -> m_feeder.set(1));
-      }
-      public Command stopFeed2() {
-        shoot = false;
-        return this.runOnce(() -> m_shooter.set(0));
+      // public Command Feed2() {
+      //   shoot = true;
+      //   return this.runOnce(() -> m_shooter.set(1));
+      // }
+      // public Command stopFeed2() {
+      //   shoot = false;
+      //   return this.runOnce(() -> m_shooter.set(0));
+      // }
+
+      public Command toggleShoot() {
+        return this.runOnce(() -> {if (shoot == false){
+          m_shooter.set(1);
+          shoot = true; 
+        }else{
+          m_shooter.set(0);
+          shoot = false;
+        }
+        });
       }
  }
