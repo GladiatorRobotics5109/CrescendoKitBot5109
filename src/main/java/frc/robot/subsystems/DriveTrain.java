@@ -4,9 +4,11 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import java.util.function.DoubleSupplier;
 
 
 public class DriveTrain extends SubsystemBase {
@@ -24,10 +26,23 @@ public class DriveTrain extends SubsystemBase {
     drive = new DifferentialDrive(leftMotor, rightMotor);
 
 
-
-
   }
 
+<<<<<<< Updated upstream
+=======
+  // Arcade drive method
+  public Command getArcadeDriveWithJoystickCommand(DoubleSupplier vx, DoubleSupplier vrot) {
+    return this.runOnce(
+      () -> {
+        double throttle = vx.getAsDouble();
+        double rotation = vrot.getAsDouble();
+        arcadeDrive(throttle, rotation);
+        
+      }
+    );
+  }
+
+>>>>>>> Stashed changes
 
   @Override
   public void periodic() {

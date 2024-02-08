@@ -6,7 +6,6 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
-import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -60,7 +59,11 @@ public class RobotContainer {
     
 
     // drive train binding to the controller
+<<<<<<< Updated upstream
     
+=======
+
+>>>>>>> Stashed changes
     
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
@@ -86,6 +89,11 @@ public class RobotContainer {
 
   //   // double speed = m_driverController.getLeftX();
 
+<<<<<<< Updated upstream
     
   // }
+=======
+
+  }
+>>>>>>> Stashed changes
 }
