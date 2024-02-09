@@ -1,6 +1,6 @@
 # CrescendoKitBot5109
 
-Commit Functioning?
+This is a work in in progress by the kitbot division 😄
 
 
 
