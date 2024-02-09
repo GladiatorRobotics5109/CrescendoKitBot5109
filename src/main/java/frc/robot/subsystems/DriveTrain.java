@@ -10,6 +10,10 @@ import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import java.util.function.DoubleSupplier;
 
+import frc.robot.RobotContainer;
+
+
+
 
 public class DriveTrain extends SubsystemBase {
 
@@ -17,15 +21,17 @@ public class DriveTrain extends SubsystemBase {
   private final Spark rightMotor;
   private final DifferentialDrive drive;
 
+  
+
 
   /** Creates a new DriveTrain. */
   public DriveTrain() {
-    leftMotor = new Spark(0);
-    rightMotor = new Spark(1);
+    leftMotor = new Spark(2);
+    rightMotor = new Spark(3);
 
     drive = new DifferentialDrive(leftMotor, rightMotor);
 
-
+    leftMotor.setInverted(true);
   }
 
   // Arcade drive method
@@ -34,12 +40,15 @@ public class DriveTrain extends SubsystemBase {
       () -> {
         double throttle = vx.getAsDouble();
         double rotation = vrot.getAsDouble();
-        drive.arcadeDrive(throttle, rotation);
         
+        arcadeDrive(throttle, rotation);
       }
     );
   }
 
+  public void arcadeDrive(double throttle, double rotation) {
+    drive.arcadeDrive(-throttle, rotation);
+  }
 
   @Override
   public void periodic() {

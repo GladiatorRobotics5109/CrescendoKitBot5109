@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
       private double m_voltageShooter;
       private double m_voltageFeeder;
       boolean shoot;
+      boolean amp;
       
       public Shooter() {
         //m_controller = new CANSparkMax(18, MotorType.kBrushed);
@@ -29,8 +30,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
       }
       public Command startFeed() {
         return this.runOnce(() -> {
-          m_feeder.set(-1);
-          m_shooter.set(-1);
+          m_feeder.set(-.5);
+          m_shooter.set(-.5);
+          System.out.println("balls");
         });
       }
       public Command stopShooter() {
@@ -60,6 +62,17 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
         }else{
           m_shooter.set(0);
           shoot = false;
+        }
+        });
+      }
+
+      public Command ampShoter(){
+        return this.runOnce(() -> {if (amp == false){
+          m_shooter.set(.2);
+          amp = true;
+        }else{
+          m_shooter.set(0);
+          amp = false;
         }
         });
       }

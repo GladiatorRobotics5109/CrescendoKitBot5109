@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
+
+
 import frc.robot.subsystems.DriveTrain;
 
  
@@ -32,7 +34,7 @@ public class RobotContainer {
 
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
+  public  CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -61,17 +63,25 @@ public class RobotContainer {
     // drive train binding to the controller
 
 
-    m_driveTrain.setDefaultCommand(m_driveTrain.getArcadeDriveWithJoystickCommand(
+
+
+    m_driveTrain.setDefaultCommand(
+      m_driveTrain.getArcadeDriveWithJoystickCommand(
       () -> m_driverController.getLeftY(),
       () -> m_driverController.getRightX()
-    ));
+      )
+    );
+
+    
+
+    
     
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
     m_driverController.leftTrigger().whileTrue(m_shooterSubsystem.startShooter()).whileFalse(m_shooterSubsystem.stopShooter());
     m_driverController.rightTrigger().whileTrue(m_shooterSubsystem.startFeed()).whileFalse(m_shooterSubsystem.stopFeed());
     m_driverController.a().whileTrue(m_shooterSubsystem.toggleShoot());
-
+    m_driverController.x().whileTrue(m_shooterSubsystem.ampShoter());
   }
 
   /**
@@ -86,6 +96,6 @@ public class RobotContainer {
 
   public void teleopPeriodic(){
 
-
+ 
   }
 }
