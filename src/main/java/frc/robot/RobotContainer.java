@@ -11,6 +11,7 @@ import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.subsystems.Led;
 
 
 
@@ -31,6 +32,8 @@ public class RobotContainer {
 
   private final DriveTrain m_driveTrain = new DriveTrain();
   // private final Shooter m_feeder = new Shooter();
+
+  private final Led m_led = new Led();
 
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
@@ -62,6 +65,7 @@ public class RobotContainer {
 
     // drive train binding to the controller
 
+    
 
 
 
@@ -77,7 +81,7 @@ public class RobotContainer {
     
     
     // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+    m_driverController.b().whileTrue(m_led.toggleLed());
     m_driverController.leftTrigger().whileTrue(m_shooterSubsystem.startShooter()).whileFalse(m_shooterSubsystem.stopShooter());
     m_driverController.rightTrigger().whileTrue(m_shooterSubsystem.startFeed()).whileFalse(m_shooterSubsystem.stopFeed());
     m_driverController.a().whileTrue(m_shooterSubsystem.toggleShoot());
