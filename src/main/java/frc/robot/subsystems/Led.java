@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
+import java.util.function.DoubleSupplier;
 
 
 public class Led extends SubsystemBase {
@@ -31,20 +32,21 @@ public class Led extends SubsystemBase {
   }
 
   //lets get some lit leds boys
-  public Command toggleLed(){
+  public Command toggleLed(DoubleSupplier val){
 
     return this.runOnce(() -> {
 
-      if (LedStatus == false) {
+      Double ledStat = val.getAsDouble();
 
-        GlowLed(4, 0, 255);
-        LedStatus = true;
+      if (ledStat != 0) {
 
-        
-      }else{
         GlowLed(255, 255, 255);
-        LedStatus = false;
+        
+      } else{
+        GlowLed(0, 0, 0);
       }
+
+
 
     });
 
