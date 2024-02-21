@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.subsystems.Led;
+import frc.robot.subsystems.Intake;
 
 
 
@@ -31,6 +32,8 @@ public class RobotContainer {
   private final Shooter m_shooterSubsystem = new Shooter();
 
   private final DriveTrain m_driveTrain = new DriveTrain();
+
+  private final Intake m_intake = new Intake();
   // private final Shooter m_feeder = new Shooter();
 
   private final Led m_led = new Led();
@@ -93,6 +96,7 @@ public class RobotContainer {
     m_driverController.rightTrigger().whileTrue(m_shooterSubsystem.startFeed()).whileFalse(m_shooterSubsystem.stopFeed());
     m_driverController.a().whileTrue(m_shooterSubsystem.toggleShoot());
     m_driverController.x().whileTrue(m_shooterSubsystem.ampShoter());
+    m_driverController.y().whileTrue(m_intake.toggleTake());
   }
 
   /**
